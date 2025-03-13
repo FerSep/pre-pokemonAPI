@@ -14,8 +14,7 @@ function dividir(array, num){
   async function cargar() {
     let response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=10&offset=0')
     let data = await response.json()
-    let general = data.results
-  
+    let general = data.results  
     return general
   }
   
@@ -23,13 +22,10 @@ function dividir(array, num){
   
     let lista = await cargar()
     let gruposdivididos = dividir(await lista, 5)
-  
-    /*console.log(lista)
-    console.log(gruposdivididos)*/
+
     for(let grupos of gruposdivididos){
   
-     let x = await procesargrupo(grupos)
-  
+      await procesargrupo(grupos)
     }
   
   }
@@ -64,8 +60,7 @@ function dividir(array, num){
 
     return imagen
   }
-
-  
+ 
   
   CargarPokemones()
 
